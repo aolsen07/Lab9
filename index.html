@@ -102,6 +102,106 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    
+    // Console Log 
+    errorBtns[0].addEventListener('click', () => {
+      console.log('Console Log Demo');
+    });
+    
+    // Console Error
+    errorBtns[1].addEventListener('click', () => {
+      console.error('Console Error Demo');
+    });
+
+    // Console Count
+    errorBtns[2].addEventListener('click', () => {
+      console.count('Console Count Demo');
+    });
+
+    // Warn
+    errorBtns[3].addEventListener('click', () => {
+      console.warn('Console Warn Demo');
+    });
+
+    // Assert
+    errorBtns[4].addEventListener('click', () => {
+      const x = 4;
+      const y = 7;
+      const reason = 'x is expected to be greater than y';
+      console.assert(x > y, {x, y, reason});     
+    });
+
+    // Clear
+    errorBtns[5].addEventListener('click', () => {
+      console.clear();
+    });
+
+    // Dir
+    errorBtns[6].addEventListener('click', () => {
+      console.dir(document.title);
+    });
+
+    // dirxml
+    errorBtns[7].addEventListener('click', () => {
+      console.dirxml(document);
+    });
+
+    // Group start
+    errorBtns[8].addEventListener('click', () => {
+      console.group('Group Demo');
+    });
+
+    // Group end
+    errorBtns[9].addEventListener('click', () => {
+      console.groupEnd('Group Demo');
+    });
+    
+    // Table
+    errorBtns[10].addEventListener('click', () => {
+      var dinnerTable = [
+        {
+          first: 'Alex',
+          last: 'Olsen',
+        },
+        {
+          first: 'Polina',
+          last: 'Past',
+        },
+        {
+          first: 'Eric',
+          last: 'Savage',
+        },
+        {
+          first: 'Bella',
+          last: 'Dog',
+        }
+      ];
+      console.table(dinnerTable);
+    });
+
+    // Start Timer
+    errorBtns[11].addEventListener('click', () => {
+      console.time();
+    });
+
+    // End Timer
+    errorBtns[12].addEventListener('click', () => {
+      console.timeEnd();
+    });
+
+    // Console Trace
+    errorBtns[13].addEventListener('click', () => {
+      const crust = () => { mantle(); };
+      const mantle = () => { core(); };
+      const core = () => { inner(); };
+      const inner = () => { console.trace(); };
+      crust();
+    });
+
+    // Global Event
+    errorBtns[14].addEventListener('click', () => {
+
+    });
   </script>
 </body>
 
