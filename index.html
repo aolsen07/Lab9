@@ -88,6 +88,14 @@
   </main>
 
   <script>
+    class InputError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "InputError";
+      }
+    }
+    
+    
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -95,8 +103,24 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      var result;
+      try {
+        if (!Number.isInteger(firstNum)) {
+          throw new InputError("First Field is not a number");
+        }
+        if (!Number.isInteger(secondNum)) {
+          throw new InputError("Second Field is not a number");
+        }
+
+        result = eval(`${firstNum} ${operator} ${secondNum}`);
+      } catch (e) {
+        console.error(e);
+        result = 'Error'; 
+      } finally {
+        output.innerHTML = result;
+      }
     });
+
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
 
@@ -200,8 +224,13 @@
 
     // Global Event
     errorBtns[14].addEventListener('click', () => {
-
+      try {
+        let result = eval(`2a * 2`);
+      } catch (e) {
+        console.error(e);
+      }
     });
+
   </script>
 </body>
 
